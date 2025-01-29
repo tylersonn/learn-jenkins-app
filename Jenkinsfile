@@ -19,7 +19,6 @@ pipeline {
                     ls -la
                     node -v
                     npm -v
-                    npm run build
                     ls -la
                 '''
             }
@@ -38,7 +37,7 @@ pipeline {
                     node_modules/.bin/netlify --version
                     echo "Deploying to prod ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify status
-                    node_modules/.bin/netlify --dir=build --prod
+                    node_modules/.bin/netlify deploy --dir=build --prod
                 '''
             }
         }
